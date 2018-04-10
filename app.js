@@ -1,15 +1,19 @@
-var createError = require("http-errors");
-var express = require("express");
-var path = require("path");
-var cookieParser = require("cookie-parser");
-var logger = require("morgan");
+const createError = require("http-errors");
+const express = require("express");
+const path = require("path");
+const cookieParser = require("cookie-parser");
+const logger = require("morgan");
 
-var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
+const indexRouter = require("./routes/index");
+const usersRouter = require("./routes/users");
 
-var app = express();
-
-// mongoose.connect(`mongodb://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_URL}`);
+const app = express();
+const mongoose = require("mongoose");
+mongoose.connect(
+  `mongodb://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${
+    process.env.DB_URL
+  }`
+);
 
 app.all("/*", function(req, res, next) {
   // CORS headers
