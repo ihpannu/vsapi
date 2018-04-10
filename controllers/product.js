@@ -1,5 +1,5 @@
 // ./controllers/product
-const Model = require("../model");
+const Model = require("../models");
 const { Product, Manufacturer } = Model;
 
 const productController = {
