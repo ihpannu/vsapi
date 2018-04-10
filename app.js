@@ -9,12 +9,16 @@ const usersRouter = require("./routes/users");
 
 const app = express();
 const mongoose = require("mongoose");
+
+const DB_USER = "iharmanpannu";
+const DB_PASSWORD = "Pannusabh3232";
+const DB_URL = "ds014388.mlab.com:14388/vuestore";
+
 mongoose.connect(
   `mongodb://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${
     process.env.DB_URL
   }`
 );
-
 app.all("/*", function(req, res, next) {
   // CORS headers
   res.header("Access-Control-Allow-Origin", "*"); // restrict it to the required domain
